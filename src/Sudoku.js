@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './Sudoku.css';
 import SudokuSquare from './SudokuSquare';
 
 
@@ -14,17 +15,26 @@ export default function Sudoku () {
 		setSquareValues(arr);
 	}
 
-	const squareItems = squareValues.map((value, index) =>
-		<SudokuSquare
-			key={index} value={value} index={index}
-			setSquareValue={setSquareValue}
-		/>
-	);
+	const nines = new Array(9).fill(0);
+	let rowItems = nines.map((v1, k1) => {
+		return (
+			<div className="SudokuRow" key={k1}>
+				{
+					nines.map((v2, k2) => {
+						let index = k1*9 + k2;
+						let value = squareValues[index];
+						return <SudokuSquare key={index} index={index} value={value}
+							setSquareValue={setSquareValue} />;
+					})
+				}
+			</div>
+		);
+	});
 
 	return (
-		<div className="bg-slate-200 min-h-screen">
-			<div className="grid grid-cols-9 max-w-lg m-auto p-4 gap-1 text-center">
-				{squareItems}
+		<div className="bg-slate-200 min-h-screen p-4">
+			<div className="max-w-lg m-auto p-2 gap-1 text-center border-2 border-slate-900">
+				{rowItems}
 			</div>
 		</div>
 	);

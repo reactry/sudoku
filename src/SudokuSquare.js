@@ -11,7 +11,7 @@ export default function SudokuSquare ({
 	}
 
 	return (
-		<div className="py-2 bg-slate-400 rounded" onClick={handleClick}>
+		<div className="SudokuSquare w-1/12 p-2 m-1 bg-slate-400 rounded h-10 inline-block align-top" onClick={handleClick}>
 			{value === 0 ? "" : value}
 		</div>
 	);
