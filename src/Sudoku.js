@@ -1,27 +1,27 @@
 import React from 'react';
 
 import './Sudoku.css';
-import SudokuSquare from './SudokuSquare';
+import SudokuCell from './SudokuCell';
 
 import {getSudoku} from './SudokuUtils';
 
 
 export default function Sudoku () {
 	let [currentIndex, setCurrectIndex] = React.useState(0);
-	let [squareValues, setSquareValues] = React.useState(new Array(9 * 9).fill({
+	let [cellValues, setCellValues] = React.useState(new Array(9 * 9).fill({
 		value: 0,
 		frozen: false
 	}));
 
-	function setSquareValue (index, value) {
+	function setCellValue (index, value) {
 		if (index < 0 || index > 80) return;
 		if (value < 1 || value > 9) return;
-		let arr = [...squareValues];
+		let arr = [...cellValues];
 		arr[index] = {
 			value: value,
 			frozen: false
 		};
-		setSquareValues(arr);
+		setCellValues(arr);
 		setCurrectIndex(index);
 	}
 
@@ -32,9 +32,9 @@ export default function Sudoku () {
 				{
 					nines.map((v2, k2) => {
 						let index = k1*9 + k2;
-						let square = squareValues[index];
-						return <SudokuSquare key={index} index={index} square={square}
-							setSquareValue={setSquareValue} />;
+						let cell = cellValues[index];
+						return <SudokuCell key={index} index={index} cell={cell}
+							setCellValue={setCellValue} />;
 					})
 				}
 			</div>
