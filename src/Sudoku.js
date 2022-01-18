@@ -3,16 +3,26 @@ import React from 'react';
 import './Sudoku.css';
 import SudokuSquare from './SudokuSquare';
 
+import {getSudoku} from './SudokuUtils';
+
 
 export default function Sudoku () {
-	let [squareValues, setSquareValues] = React.useState(new Array(81).fill(0));
+	let [currentIndex, setCurrectIndex] = React.useState(0);
+	let [squareValues, setSquareValues] = React.useState(new Array(9 * 9).fill({
+		value: 0,
+		frozen: false
+	}));
 
 	function setSquareValue (index, value) {
 		if (index < 0 || index > 80) return;
 		if (value < 1 || value > 9) return;
 		let arr = [...squareValues];
-		arr[index] = value;
+		arr[index] = {
+			value: value,
+			frozen: false
+		};
 		setSquareValues(arr);
+		setCurrectIndex(index);
 	}
 
 	const nines = new Array(9).fill(0);
@@ -22,8 +32,8 @@ export default function Sudoku () {
 				{
 					nines.map((v2, k2) => {
 						let index = k1*9 + k2;
-						let value = squareValues[index];
-						return <SudokuSquare key={index} index={index} value={value}
+						let square = squareValues[index];
+						return <SudokuSquare key={index} index={index} square={square}
 							setSquareValue={setSquareValue} />;
 					})
 				}
