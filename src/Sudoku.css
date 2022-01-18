@@ -2,12 +2,11 @@
 
 
 div.SudokuRow:nth-child(3), div.SudokuRow:nth-child(6) {
-	background-color: red;
+	/*background-color: red;*/
 	margin-bottom: 4px;
 }
 
 div.SudokuCell:nth-child(3), div.SudokuCell:nth-child(6) {
-	background-color: blue;
 	margin-right: 4px;
 }
 
