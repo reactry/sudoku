@@ -5,8 +5,20 @@ div.SudokuRow:nth-child(3), div.SudokuRow:nth-child(6) {
 	margin-bottom: 8px;
 }
 
+div.SudokuYLabelCell {
+	margin-bottom: 8px;
+}
+
+div.SudokuYLabelCell:nth-child(3), div.SudokuYLabelCell:nth-child(6) {
+	margin-bottom: 12px;
+}
+
 div.SudokuCell:nth-child(3), div.SudokuCell:nth-child(6) {
 	margin-right: 8px;
+}
+
+div.SudokuXLabelCell:nth-child(3), div.SudokuXLabelCell:nth-child(6) {
+	margin-right: 12px;
 }
 
 
