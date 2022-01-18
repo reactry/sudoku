@@ -28,7 +28,7 @@ export default function Sudoku () {
 	const nines = new Array(9).fill(0);
 	let rowItems = nines.map((v1, k1) => {
 		return (
-			<div className="SudokuRow font-bold" key={k1}>
+			<div className="SudokuRow font-bold select-none" key={k1}>
 				{
 					nines.map((v2, k2) => {
 						let index = k1*9 + k2;

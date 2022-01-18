@@ -35,7 +35,7 @@ export default function SudokuCell ({
 
 	let cell_classname = "SudokuCell w-1/12 p-2 m-1 rounded-full h-10 inline-block align-top " + getSquareBgClass(index);
 	return (
-		<div className={cell_classname} onClick={handleClick} tabIndex={index}>
+		<div className={cell_classname} onClick={handleClick} tabIndex="0">
 			{cell.value === 0 ? "" : cell.value}
 		</div>
 	);
